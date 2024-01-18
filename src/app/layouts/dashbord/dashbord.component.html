@@ -1,0 +1,28 @@
+<mat-drawer-container class="sidenav" autosize>
+    <mat-drawer #drawer class="example-sidenav fondo" mode="side">
+      <p class="text-center menu">Menu</p>
+      <div class="grid">
+        <div class="display block col-12 boton"><button routerLink="/alumno" class="w-full" mat-button color="accent">Alumnos</button></div>
+        <div class="display block col-12 boton"><button routerLink="/clases" class="w-full" mat-button color="accent">Clases</button></div>
+      </div>
+    </mat-drawer>
+        <mat-toolbar color="primary" class="flex">
+          <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon style="color:black" >menu</mat-icon>
+          </button>
+          <!-- <span class="example-spacer"></span> -->
+          <h1 appTitulos>Mi Univerdidad</h1>
+          <!-- <span class="example-spacer"></span> -->
+          <div style="color:black">
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+              <mat-icon>perm_identity</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+              <mat-icon>settings</mat-icon>
+            </button>
+          </div>
+        </mat-toolbar>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+  </mat-drawer-container>

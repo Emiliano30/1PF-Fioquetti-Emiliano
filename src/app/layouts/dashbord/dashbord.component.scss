@@ -1,0 +1,23 @@
+.sidenav{
+    height: 100vh;
+}
+.example-spacer{
+    flex: 1 1 auto;
+}
+.boton{
+    font-weight:500;
+
+}
+.fondo{
+    background-color: #edfdff;
+}
+.menu{
+    font-weight: bold;
+    font-size: 20px !important;
+}
+.flex{
+    display: flex;
+    justify-content:space-between;
+    color: white;
+    font-size: 20px;
+}
