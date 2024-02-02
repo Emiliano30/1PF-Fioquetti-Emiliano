@@ -1,13 +1,19 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 .sidenav{
     height: 100vh;
 }
 .example-spacer{
     flex: 1 1 auto;
 }
-.boton{
-    font-weight:500;
+// .boton{
+//     color: #edfdff !important;
+//     font-weight:500;
 
-}
+// }
 .fondo{
     background-color: #edfdff;
 }
@@ -20,4 +26,13 @@
     justify-content:space-between;
     color: white;
     font-size: 20px;
+}
+
+.titulo{
+    text-decoration: none;
+    color: white;
+}
+
+.boton:hover{
+    background-color: rgba(0, 102, 255, 0.177);
 }

@@ -1,12 +1,31 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlumnosComponent } from './layouts/dashbord/paginas/alumnos/alumnos.component';
-import { ClasesComponent } from './layouts/dashbord/paginas/clases/clases.component';
+import { DashbordComponent } from './layouts/dashbord/dashbord.component';
+import { LoginComponent } from './layouts/login/login.component';
+import { ErrorComponent } from './layouts/error/error.component';
+import { authGuard } from './core/auth/auth.guard';
+
+
 
 const routes: Routes = [
- {path:'',redirectTo:'/alumno', pathMatch:'full'},
- {path: 'alumno', component: AlumnosComponent},
- {path:'clases', component: ClasesComponent}
+{
+  path:'dashbord',
+  canActivate:[authGuard],
+  component:DashbordComponent,
+  loadChildren:()=>import('./layouts/dashbord/dashbord.module').then((m)=>m.DashbordModule)
+},
+{
+  path:'login',
+  loadChildren:()=>import('./layouts/login/login.module').then((m)=>m.LoginModule)
+},
+{
+  path:'404',
+  component:ErrorComponent
+},
+{
+  path:'**',
+  redirectTo: 'login'
+},
 ];
 
 @NgModule({

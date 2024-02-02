@@ -1,9 +1,43 @@
 <mat-drawer-container class="sidenav" autosize>
     <mat-drawer #drawer class="example-sidenav fondo" mode="side">
-      <p class="text-center menu">Menu</p>
-      <div class="grid">
-        <div class="display block col-12 boton"><button routerLink="/alumno" class="w-full" mat-button color="accent">Alumnos</button></div>
-        <div class="display block col-12 boton"><button routerLink="/clases" class="w-full" mat-button color="accent">Clases</button></div>
+      <!-- <p class="text-center menu">Menu</p> -->
+      <div class="grid w">
+        <div class="w-full">
+          <mat-nav-list class="p-0">
+            <a
+            class="boton"
+            routerLink="home"
+            mat-list-item
+            routerLinkActive
+            #home="routerLinkActive"
+            [activated]="home.isActive">Inicio</a>
+          </mat-nav-list>
+        </div>
+        <div class="w-full">
+          <mat-nav-list class="p-0">
+            <a
+            color="accent"
+            class="boton"
+            routerLink="alumnos"
+            mat-list-item
+            routerLinkActive
+            #alumno="routerLinkActive"
+            [activated]="alumno.isActive">Alumno</a>
+          </mat-nav-list>
+        </div>
+        <div class="w-full">
+          <mat-nav-list class="p-0">
+            <a
+            class="boton"
+            routerLink="cursos"
+            mat-list-item
+            routerLinkActive
+            #cursos="routerLinkActive"
+            [activated]="cursos.isActive">Cursos</a>
+          </mat-nav-list>
+        </div>
+        <!-- <div class="display block col-12 boton"><button routerLink="/alumno" class="w-full" mat-button color="accent">Alumnos</button></div>
+        <div class="display block col-12 boton"><button routerLink="/clases" class="w-full" mat-button color="accent">Clases</button></div> -->
       </div>
     </mat-drawer>
         <mat-toolbar color="primary" class="flex">
@@ -11,18 +45,44 @@
             <mat-icon style="color:black" >menu</mat-icon>
           </button>
           <!-- <span class="example-spacer"></span> -->
-          <h1 appTitulos>Mi Univerdidad</h1>
+          <h1 appTitulos><a routerLink="home" class="titulo">Mi Univerdidad</a></h1>
           <!-- <span class="example-spacer"></span> -->
           <div style="color:black">
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-              <mat-icon>perm_identity</mat-icon>
-            </button>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-              <mat-icon>settings</mat-icon>
-            </button>
+                <button mat-icon-button [matMenuTriggerFor]="perfil" aria-label="Example icon-button with a menu">
+                  <mat-icon>perm_identity</mat-icon>
+                </button>
+                <mat-menu #perfil="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Editar Perfil</span>
+                  </button>
+                  <button mat-menu-item (click)="logout()">
+                    <mat-icon>power_settings_new</mat-icon>
+                    <span>Cerrar Sesion</span>
+                  </button>
+                </mat-menu>
+                
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>settings</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>language</mat-icon>
+                    <span>Idioma</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>color_lens</mat-icon>
+                    <span>Temas</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>location_city</mat-icon>
+                    <span>Ubicacion</span>
+                  </button>
+                </mat-menu>
           </div>
         </mat-toolbar>
         <div>
+          <!-- <app-alumnos></app-alumnos> -->
           <router-outlet></router-outlet>
         </div>
   </mat-drawer-container>
