@@ -36,4 +36,12 @@ errorNoti(){
   })
 }
 
+errorHttp(text:string){
+  this.notificacion$.next({
+    icon:"error",
+    title:"Error",
+    text:text
+  })
+}
+
 }

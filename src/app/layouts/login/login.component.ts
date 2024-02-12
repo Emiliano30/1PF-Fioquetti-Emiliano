@@ -18,20 +18,20 @@ export class LoginComponent {
     ){
       this.miFormulario = this.fb.group({
         email:this.fb.control('emi@gmail.com',[Validators.required,Validators.email]),
-        Contraseña:this.fb.control('emiliano',[Validators.required, Validators.maxLength(8),Validators.minLength(5)])
+        Contraseña:this.fb.control('emiliano',[Validators.required, Validators.maxLength(10),Validators.minLength(5)])
       })
     }
 
 
   onSubmit(){
     if(this.miFormulario.invalid){
-      this.miFormulario.markAllAsTouched
+      this.miFormulario.markAllAsTouched()
     }else{
-      this.auth.login(this.miFormulario.value)
+      this.auth.login(this.miFormulario.value).subscribe()
     }
   }
 
-  mostrar(){
-    this.ocultar = true
-  }
+  // mostrar(){
+  //   this.ocultar = true
+  // }
 }

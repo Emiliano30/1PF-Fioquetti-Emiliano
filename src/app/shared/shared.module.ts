@@ -15,6 +15,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { ValidadoresPipe } from './validadores.pipe';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -36,9 +38,11 @@ import { ValidadoresPipe } from './validadores.pipe';
     TitulosDirective,
     SoloNumeroDirective,
     MatTableModule,
+    MatPaginatorModule,
     MatIconModule,
     MatDividerModule,
     FormsModule,
+    MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,

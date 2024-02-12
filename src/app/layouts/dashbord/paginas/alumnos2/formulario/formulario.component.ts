@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ListaService } from '../../../../../core/listaAlumnos/lista.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { AlumnoModelo } from '../model';
+import { UsuarioModelo } from '../model';
 
 @Component({
   selector: 'app-formulario',
@@ -14,13 +14,14 @@ export class FormularioComponent {
   opciones:string[] = []
   localidades:string[]=[]
   item: string="";
-
+  Roles:string[]=[]
+  ocultar=false
 
   constructor(
     private fb:FormBuilder,
     private provincias:ListaService,
     private dialogoRef:MatDialogRef<FormularioComponent>,
-    @Inject(MAT_DIALOG_DATA)private editingCurso?:AlumnoModelo
+    @Inject(MAT_DIALOG_DATA)private editingCurso?:UsuarioModelo
     ){
 
     this.miFormulario = this.fb.group({
@@ -29,7 +30,9 @@ export class FormularioComponent {
       Email:this.fb.control('',[Validators.required, Validators.email]),
       Provincia: this.fb.control('',Validators.required),
       Ciudad:this.fb.control('',Validators.required),
-      Nota:this.fb.control('',[Validators.required,Validators.min(1),Validators.max(10)])
+      Nota:this.fb.control('',[Validators.required,Validators.min(1),Validators.max(10)]),
+      Rol:this.fb.control('',[Validators.required]),
+      Contraseña:this.fb.control('',[Validators.required,Validators.maxLength(10),Validators.minLength(4)])
     })
   
 
@@ -40,6 +43,10 @@ export class FormularioComponent {
     if(this.editingCurso){
       this.miFormulario.patchValue(this.editingCurso)
     }
+
+    this.provincias.getRol().subscribe({
+      next:(val)=>this.Roles = val
+    })
   
   }
   
@@ -62,4 +69,5 @@ export class FormularioComponent {
     
     
   }
+
 }

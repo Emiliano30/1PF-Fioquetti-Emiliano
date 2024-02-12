@@ -16,6 +16,7 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import { Alumnos2Component } from './paginas/alumnos2/alumnos2.component';
 import { Alumnos2Module } from './paginas/alumnos2/alumnos2.module';
+import { adminGuard } from '../../core/auth/admin.guard';
 
 
 
@@ -43,6 +44,7 @@ import { Alumnos2Module } from './paginas/alumnos2/alumnos2.module';
     },
     {
       path:'alumnos',
+      canActivate:[adminGuard],
       loadChildren:()=>import('./paginas/alumnos2/alumnos2.module').then((m)=>m.Alumnos2Module)
     },
     {

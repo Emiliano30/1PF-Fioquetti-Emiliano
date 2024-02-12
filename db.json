@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "9226",
+      "Nombre": "nancy",
+      "Apellido": "martinez",
+      "Email": "nancy@gmail.com",
+      "Provincia": "Mendoza",
+      "Ciudad": "Maipú",
+      "Nota": "10",
+      "Rol": "Admin",
+      "Contraseña": "nancy",
+      "token": "asd6234klfadd123da3"
+    },
+    {
+      "id": "37d0",
+      "Nombre": "jose",
+      "Apellido": "fioquetti",
+      "Email": "jose@gmail.com",
+      "Provincia": "Mendoza",
+      "Ciudad": "Godoy Cruz",
+      "Nota": "7",
+      "Rol": "User",
+      "Contraseña": "josefio",
+      "token": "asd6234klfadd123da4"
+    },
+    {
+      "id": "7993",
+      "Nombre": "alex",
+      "Apellido": "fioquetti",
+      "Email": "alex@gmail.com",
+      "Provincia": "Mendoza",
+      "Ciudad": "Maipú",
+      "Nota": "5",
+      "Rol": "User",
+      "Contraseña": "alexd",
+      "token": "asd6234klfadd123da5"
+    },
+    {
+      "Nombre": "Pablo",
+      "Apellido": "martinez",
+      "Email": "pablo@gmail.com",
+      "Provincia": "Mendoza",
+      "Ciudad": "Maipú",
+      "Nota": "5",
+      "Rol": "Admin",
+      "Contraseña": "asdasda",
+      "id": "f9d7"
+    },
+    {
+      "id": "8542",
+      "Nombre": "emilino",
+      "Apellido": "fioquetti",
+      "Email": "emi@gmail.com",
+      "Provincia": "Buenos Aires",
+      "Ciudad": "Pilar",
+      "Nota": "5",
+      "Rol": "Admin",
+      "Contraseña": "emiliano",
+      "token": " 7MSfTkTpW4mm2uk"
+    }
+  ],
+  "courses": [
+    {
+      "nombreCurso": "Ingles",
+      "Fecha": "2024-02-26T03:00:00.000Z",
+      "id": "99de"
+    },
+    {
+      "nombreCurso": "matematica",
+      "Fecha": "2024-02-17T03:00:00.000Z",
+      "id": "8331"
+    },
+    {
+      "id": "bf49",
+      "nombreCurso": "informatica",
+      "Fecha": "2024-02-29T03:00:00.000Z"
+    },
+    {
+      "id": "230c",
+      "nombreCurso": "educacion fisica",
+      "Fecha": "2024-02-14T03:00:00.000Z"
+    }
+  ]
+}

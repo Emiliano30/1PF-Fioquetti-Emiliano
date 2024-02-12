@@ -1,4 +1,4 @@
-<h1 mat-dialog-title appTitulos>Agregar Curso </h1>
+<h1 mat-dialog-title appTitulos>Agregar Usuario </h1>
 
 <div mat-dialog-content>
     
@@ -76,6 +76,34 @@
     
               </mat-form-field>
         </div>
+
+        <div class="col-4">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="Rol">
+                    @for (item of Roles; track $index) {
+                        <mat-option [value]="item"> {{item}} </mat-option>}
+                </mat-select>
+                <mat-error>
+                    {{miFormulario.get('Rol')?.errors | validadores}}
+                </mat-error>
+              </mat-form-field>
+        </div>
+
+        <div class="col-8">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input [type]="ocultar ? 'text' : 'password'" matInput placeholder="Ingresa una Contraseña" formControlName="Contraseña">
+                <mat-error>
+                    {{miFormulario.get('Contraseña')?.errors | validadores}}
+                </mat-error>
+                <button mat-icon-button matSuffix type="button" (click)="ocultar = !ocultar">
+                   <mat-icon >visibility</mat-icon> 
+                </button>
+                
+            </mat-form-field>
+        </div >
+
     </form>
 </div>
 

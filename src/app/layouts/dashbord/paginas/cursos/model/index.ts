@@ -1,5 +1,5 @@
 export interface CursoModel{
-    Id:number,
+    id:number,
     nombreCurso:string,
     Fecha:Date,
 }

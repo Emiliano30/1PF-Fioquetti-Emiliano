@@ -9,6 +9,7 @@ import { LoginModule } from './layouts/login/login.module';
 import { ErrorModule } from './layouts/error/error.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     LoginModule,
     ErrorModule,
     MatProgressSpinnerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule
    
   ],
   providers: [],

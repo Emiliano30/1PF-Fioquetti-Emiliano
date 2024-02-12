@@ -20,7 +20,7 @@ const routes: Routes = [
 },
 {
   path:'404',
-  component:ErrorComponent
+  loadChildren:()=>import('./layouts/error/error.module').then((m)=>m.ErrorModule)
 },
 {
   path:'**',

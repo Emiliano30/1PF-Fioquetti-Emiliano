@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrl: './cursos.component.scss'
 })
 export class CursosComponent {
-displayedColumns: string[] = ['Id', 'nombreCurso', 'Fecha', 'Acciones'];
+displayedColumns: string[] = ['id', 'nombreCurso', 'Fecha', 'Acciones'];
 Cursos:CursoModel[]=[]
 
 
@@ -71,7 +71,7 @@ editarCurso(curso:CursoModel){
     }).afterClosed().subscribe({
       next:(res)=>{
         if(res){
-          this.cursosService.editarCurso(curso.Id,res).subscribe({
+          this.cursosService.editarCurso(curso.id,res).subscribe({
             next:(val)=>this.Cursos = val
           })
         }
