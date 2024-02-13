@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CursoModel } from './model';
-import { ListacursoService } from '../../../../core/cursos/listacurso.service';
+import { ListacursoService } from '../../../../core/services/cursos/listacurso.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CrearCursoComponent } from './crear-curso/crear-curso.component';
 import Swal from 'sweetalert2';

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CursoModel } from '../../layouts/dashbord/paginas/cursos/model';
+import { CursoModel } from '../../../layouts/dashbord/paginas/cursos/model';
 import { catchError, delay, finalize, of, mergeMap } from 'rxjs';
 import { SpinnerService } from '../spinner/spinner.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { NotificacionService } from '../notificacion/notificacion.service';
 
 

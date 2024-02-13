@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificacionService } from '../../../../core/notificacion/notificacion.service';
-import { ListaService } from '../../../../core/listaAlumnos/lista.service';
+import { NotificacionService } from '../../../../core/services/notificacion/notificacion.service';
+import { ListaService } from '../../../../core/services/listaAlumnos/lista.service';
 import { UsuarioModelo } from './model';
-import { SpinnerService } from '../../../../core/spinner/spinner.service';
+import { SpinnerService } from '../../../../core/services/spinner/spinner.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormularioComponent } from './formulario/formulario.component';
 import Swal from 'sweetalert2';
@@ -16,7 +16,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class Alumnos2Component{
 
   displayedColumns: string[] = ['id','Nombre Completo','Email','Provincia','Ciudad','Nota','Rol','Accion'];
-  criterio:string="";
+  criterio:string=""
   dataSource:UsuarioModelo[] = [];
   totalItem = 0;
   pageSize = 5;

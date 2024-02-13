@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ListaService } from '../../../../../core/listaAlumnos/lista.service';
+import { ListaService } from '../../../../../core/services/listaAlumnos/lista.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsuarioModelo } from '../model';
 

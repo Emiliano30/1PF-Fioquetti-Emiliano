@@ -2,11 +2,11 @@ import { Injectable, Pipe } from '@angular/core';
 
 import { Observable, catchError, delay, finalize, mergeMap, of } from 'rxjs';
 import { NotificacionService } from '../notificacion/notificacion.service';
-import { UsuarioModelo } from '../../layouts/dashbord/paginas/alumnos2/model';
+import { UsuarioModelo } from '../../../layouts/dashbord/paginas/alumnos2/model';
 import { SpinnerService } from '../spinner/spinner.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { Paginador } from '../modelo-paginador/index';
+import { environment } from '../../../../environments/environment';
+import { Paginador } from '../../modelo-paginador/index';
 
 let provincias:string[]=["Mendoza","Buenos Aires","Cordoba","San Luis"]
 

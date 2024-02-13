@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, delay, finalize, map, of, tap } from 'rxjs';
-import { SpinnerService } from '../../core/spinner/spinner.service';
-import { NotificacionService } from '../../core/notificacion/notificacion.service';
+import { SpinnerService } from '../../core/services/spinner/spinner.service';
+import { NotificacionService } from '../../core/services/notificacion/notificacion.service';
 import { UsuarioModelo } from '../dashbord/paginas/alumnos2/model/index';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';

@@ -5,6 +5,7 @@ import { Alumnos2Component } from './alumnos2.component';
 import { SharedModule } from '../../../../shared/shared.module';
 import { FormularioComponent } from './formulario/formulario.component';
 import { Alumnos2RouterModule } from './alumnos2-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,9 @@ import { Alumnos2RouterModule } from './alumnos2-routing.module';
   imports: [
     CommonModule,
     SharedModule,
-    Alumnos2RouterModule
+    Alumnos2RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   
   ],
   exports:[Alumnos2Component]
