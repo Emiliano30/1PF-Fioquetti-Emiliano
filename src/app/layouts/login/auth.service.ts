@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, delay, finalize, map, of, tap } from 'rxjs';
+import { Observable, catchError, delay, finalize, map, of, tap } from 'rxjs';
 import { SpinnerService } from '../../core/services/spinner/spinner.service';
 import { NotificacionService } from '../../core/services/notificacion/notificacion.service';
 import { UsuarioModelo } from '../dashbord/paginas/alumnos2/model/index';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Store } from '@ngrx/store';
+import { loginAction } from '../../core/store/action';
 
 
 interface usuario {
@@ -17,17 +19,19 @@ Contraseña: null | string
   providedIn: 'root'
 })
 export class AuthService {
-usuarios?:UsuarioModelo | null
+// usuarios?:UsuarioModelo | null
   constructor(
     private ruta:Router,
     private cargando:SpinnerService,
     private notificacion:NotificacionService,
-    private httpClient:HttpClient) { }
+    private httpClient:HttpClient,
+    private store:Store
+    ) { }
 
 
 
   getAuthToken(usuario:UsuarioModelo){
-    this.usuarios = usuario
+    this.store.dispatch(loginAction.setAuthUser({usuario}))
     localStorage.setItem('token',usuario.token)
   }
 
@@ -57,7 +61,7 @@ usuarios?:UsuarioModelo | null
 
 
   logout(){
-    this.usuarios = null
+    this.store.dispatch(loginAction.logout())
     this.ruta.navigate(['login'])
     localStorage.removeItem('token')
   }
@@ -76,11 +80,12 @@ virificacion(){
         this.getAuthToken(res[0]);
         return true;
       }else{
-        this.usuarios = null;
+        this.store.dispatch(loginAction.logout())
         localStorage.removeItem('token');
         return false
       }
-    }),finalize(()=>this.cargando.cargando(false)))
+    }),catchError(()=>of (false)),
+    finalize(()=>this.cargando.cargando(false)))
 }
 
 

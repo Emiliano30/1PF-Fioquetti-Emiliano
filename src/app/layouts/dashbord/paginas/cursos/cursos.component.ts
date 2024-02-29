@@ -4,6 +4,10 @@ import { ListacursoService } from '../../../../core/services/cursos/listacurso.s
 import { MatDialog } from '@angular/material/dialog';
 import { CrearCursoComponent } from './crear-curso/crear-curso.component';
 import Swal from 'sweetalert2';
+import { Store } from '@ngrx/store';
+import { selectUsuario } from '../../../../core/store/selector';
+import { Observable } from 'rxjs';
+import { UsuarioModelo } from '../alumnos2/model';
 
 
 @Component({
@@ -14,16 +18,22 @@ import Swal from 'sweetalert2';
 export class CursosComponent {
 displayedColumns: string[] = ['id', 'nombreCurso', 'Fecha', 'Acciones'];
 Cursos:CursoModel[]=[]
-
+mostrar$:Observable<UsuarioModelo | null>
 
 
   constructor(
     private cursosService:ListacursoService,
-    public dialogo:MatDialog){
+    public dialogo:MatDialog,
+    private store:Store
+    ){
     this.cursosService.getCursos().subscribe(
       {
         next:(cursos)=>this.Cursos = cursos
-      })}
+      })
+    
+    this.mostrar$ = this.store.select(selectUsuario)
+    
+    }
 
 
 crear(){
@@ -78,4 +88,15 @@ editarCurso(curso:CursoModel){
       }
     })
 }
+
+
+mostrar(dato:string){
+  if(dato == 'Admin'){
+    return true
+  }else{
+    return false
+  }
+ }
+
+
 }

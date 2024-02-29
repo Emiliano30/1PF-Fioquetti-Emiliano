@@ -1,6 +1,6 @@
 import { Injectable, Pipe } from '@angular/core';
 
-import { Observable, catchError, delay, finalize, mergeMap, of } from 'rxjs';
+import { Observable, catchError, delay, finalize, mergeMap, of, tap } from 'rxjs';
 import { NotificacionService } from '../notificacion/notificacion.service';
 import { UsuarioModelo } from '../../../layouts/dashbord/paginas/alumnos2/model';
 import { SpinnerService } from '../spinner/spinner.service';
@@ -18,9 +18,7 @@ const ciudades4:string[] = ['Villa Mercedes','Villa de Merlo','Juana Koslay','La
 let Rol:string[]=['Admin','User']
 
 
-let listaAlumnos:UsuarioModelo[] = [
- 
-]
+let listaAlumnos=['7993']
 
 
 @Injectable({
@@ -32,7 +30,8 @@ constructor(
   private alerta:NotificacionService,
   private cargando:SpinnerService,
   private httpClient:HttpClient
-  ) {}
+  ) {
+  }
 
 
  generateString(length:number) {
@@ -46,7 +45,6 @@ constructor(
 
     return result;
 }
-
 
 
 getRol(){
@@ -96,7 +94,11 @@ datos2$(){
 
 
 paginador(page:number,perPage = 5){
-  return this.httpClient.get<Paginador<UsuarioModelo>>(`${environment.apiURL}/users?_page=${page}&_per_page=${perPage}`)
+  this.cargando.cargando(true)
+  return this.httpClient.get<Paginador<UsuarioModelo>>(`${environment.apiURL}/users?_page=${page}&_per_page=${perPage}`).pipe(
+    delay(2000),
+    finalize(()=>this.cargando.cargando(false))
+  )
 }
 
 
@@ -122,6 +124,11 @@ borrar(id:number){
   return this.httpClient.delete(`${environment.apiURL}/users/${id}`).pipe(mergeMap(()=>this.datos2$()))
  }
 
+
+ getById(id:string):Observable<UsuarioModelo[]>{
+  return this.httpClient.get<UsuarioModelo[]>(`${environment.apiURL}/users/${id}`);
+ }
+
 // borrarAlumno(idalumno:number){
 //   listaAlumnos = listaAlumnos.filter((res) => res.Id !== idalumno)
 //   return this.datos2$()
@@ -133,7 +140,9 @@ borrar(id:number){
 
 
 
-
+getAlumnos():Observable<UsuarioModelo[]>{
+  return this.httpClient.get<UsuarioModelo[]>(`${environment.apiURL}/users?Rol=User`)
+}
 
 
 }

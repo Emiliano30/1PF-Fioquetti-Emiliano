@@ -18,6 +18,8 @@ import { ValidadoresPipe } from './pipe/validadores.pipe';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { MatCardModule } from '@angular/material/card';
   exports:[
     ValidadoresPipe,
     FullNamePipe, 
-    FiltroPipe, 
+    FiltroPipe,
+     
     TitulosDirective,
     SoloNumeroDirective,
     MatTableModule,

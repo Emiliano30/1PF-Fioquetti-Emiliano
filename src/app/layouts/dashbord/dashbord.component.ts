@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../login/auth.service';
+import { Observable } from 'rxjs';
+import { UsuarioModelo } from './paginas/alumnos2/model';
+import { Store } from '@ngrx/store';
+import { selectUsuario } from '../../core/store/selector';
 
 @Component({
   selector: 'app-dashbord',
@@ -8,7 +12,12 @@ import { AuthService } from '../login/auth.service';
 })
 export class DashbordComponent {
   showFiller = false;
-  constructor(private logoutService:AuthService){}
+  usuario$:Observable<UsuarioModelo | null>
+
+
+  constructor(private logoutService:AuthService, private store:Store){
+    this.usuario$ = store.select(selectUsuario)
+  }
   logout(){
     this.logoutService.logout()
   }

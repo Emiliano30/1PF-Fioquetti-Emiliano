@@ -36,6 +36,17 @@
             [activated]="cursos.isActive">Cursos</a>
           </mat-nav-list>
         </div>
+        <div class="w-full">
+          <mat-nav-list class="p-0">
+            <a
+            class="boton"
+            routerLink="inscripciones"
+            mat-list-item
+            routerLinkActive
+            #inscripciones="routerLinkActive"
+            [activated]="inscripciones.isActive">Inscripciones</a>
+          </mat-nav-list>
+        </div>
         <!-- <div class="display block col-12 boton"><button routerLink="/alumno" class="w-full" mat-button color="accent">Alumnos</button></div>
         <div class="display block col-12 boton"><button routerLink="/clases" class="w-full" mat-button color="accent">Clases</button></div> -->
       </div>
@@ -52,6 +63,14 @@
                   <mat-icon>perm_identity</mat-icon>
                 </button>
                 <mat-menu #perfil="matMenu">
+                  <button mat-menu-item *ngIf="usuario$ | async; let user">
+                    <mat-icon>contact_mail</mat-icon>
+                    <span>{{user.Nombre}} {{user.Apellido}}</span>
+                    <p>{{user.Email}}</p>
+                  </button>
+                  <!-- <div *ngIf="usuario$ | async; let user">
+                    <pre>{{user.Nombre}} {{user.Apellido}}</pre>
+                  </div> -->
                   <button mat-menu-item>
                     <mat-icon>account_circle</mat-icon>
                     <span>Editar Perfil</span>

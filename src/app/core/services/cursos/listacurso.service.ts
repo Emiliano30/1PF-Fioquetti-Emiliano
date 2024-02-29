@@ -1,30 +1,11 @@
 import { Injectable } from '@angular/core';
 import { CursoModel } from '../../../layouts/dashbord/paginas/cursos/model';
-import { catchError, delay, finalize, of, mergeMap } from 'rxjs';
+import { catchError, delay, finalize, of, mergeMap, Observable } from 'rxjs';
 import { SpinnerService } from '../spinner/spinner.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { NotificacionService } from '../notificacion/notificacion.service';
 
-
-let cursos:CursoModel[] = [
-  // {
-  //   Id:1,
-  //   nombreCurso:"Informática",
-  //   Fecha:new Date()
-  // },
-  // {
-  //   Id:2,
-  //   nombreCurso:"Matemática",
-  //   Fecha:new Date()
-  // },
-  // {
-  //   Id:3,
-  //   nombreCurso:"Ingles Tecnico",
-  //   Fecha:new Date()
-  // }
-
-]
 
 
 
@@ -37,6 +18,11 @@ export class ListacursoService {
     private cargando:SpinnerService,
     private httpClient:HttpClient,
     private notificacion:NotificacionService) {}
+
+
+ cargarCursos():Observable<CursoModel[]>{
+  return this.httpClient.get<CursoModel[]>(`${environment.apiURL}/courses`)
+ }   
 
  getCursos(){
   this.cargando.cargando(true)

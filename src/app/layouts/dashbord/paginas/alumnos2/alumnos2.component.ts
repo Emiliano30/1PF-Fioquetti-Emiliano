@@ -7,6 +7,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormularioComponent } from './formulario/formulario.component';
 import Swal from 'sweetalert2';
 import { PageEvent } from '@angular/material/paginator';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { usuario } from '../../../../core/store/reducer';
+import { selectUsuario } from '../../../../core/store/selector/index';
 
 @Component({
   selector: 'app-alumnos2',
@@ -21,12 +25,14 @@ export class Alumnos2Component{
   totalItem = 0;
   pageSize = 5;
   currentPage = 1;
+  mostrar$:Observable<UsuarioModelo | null>
 
   constructor(
     private listaAlumno:ListaService,
     private alert:NotificacionService,
     private cargando:SpinnerService,
-    public dialogo:MatDialog
+    public dialogo:MatDialog,
+    private store:Store
     ){
       // this.listaAlumno.datos$().subscribe({
       //   next:(val)=>this.dataSource = val
@@ -37,10 +43,16 @@ export class Alumnos2Component{
           this.dataSource = val.data;
         }}
       )
-      
+      this.mostrar$ = this.store.select(selectUsuario)
     }
  
- 
+ mostrar(dato:string){
+  if(dato == 'Admin'){
+    return true
+  }else{
+    return false
+  }
+ }
 
 
   crear(){

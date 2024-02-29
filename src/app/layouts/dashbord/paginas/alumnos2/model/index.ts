@@ -1,5 +1,5 @@
 export interface UsuarioModelo{
-    id:number,
+    id:number ,
     Nombre:string,
     Apellido:string,
     Email:string,

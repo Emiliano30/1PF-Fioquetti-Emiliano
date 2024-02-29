@@ -1,0 +1,32 @@
+<h1 mat-dialog-title appTitulos> Crear Inscripcion</h1>
+<div mat-dialog-content>
+    <form class="grid formgrid p-3" [formGroup]="miFormulario">
+        <div class="col-12">
+            <mat-form-field class="w-full" appearance="outline" >
+                <mat-label>Alumno</mat-label>
+                <mat-select formControlName="userId">
+                    <mat-option [value]="alumno.id" *ngFor="let alumno of alumnos$|async"> {{alumno.Nombre}} {{alumno.Apellido}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    {{miFormulario.get('userId')?.errors | validadores}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-12">
+            <mat-form-field class="w-full" appearance="outline" >
+                <mat-label>Curso</mat-label>
+                <mat-select formControlName="courseId">
+                    <mat-option [value]="curso.id" *ngFor="let curso of cursos$|async" > {{curso.nombreCurso}} </mat-option>
+                </mat-select>
+                <mat-error>
+                    {{miFormulario.get('courseId')?.errors | validadores}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <p>{{miFormulario.value | json}}</p>
+    </form>
+</div>
+<div mat-dialog-actions class="flex justify-content-end pr-5">
+    <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
+    <button mat-raised-button color="accent" (click)="onSubmit()">Guardar</button>
+</div>

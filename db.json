@@ -1,53 +1,6 @@
 {
   "users": [
     {
-      "id": "9226",
-      "Nombre": "nancy",
-      "Apellido": "martinez",
-      "Email": "nancy@gmail.com",
-      "Provincia": "Mendoza",
-      "Ciudad": "Maipú",
-      "Nota": "10",
-      "Rol": "Admin",
-      "Contraseña": "nancy",
-      "token": "asd6234klfadd123da3"
-    },
-    {
-      "id": "37d0",
-      "Nombre": "jose",
-      "Apellido": "fioquetti",
-      "Email": "jose@gmail.com",
-      "Provincia": "Mendoza",
-      "Ciudad": "Godoy Cruz",
-      "Nota": "7",
-      "Rol": "User",
-      "Contraseña": "josefio",
-      "token": "asd6234klfadd123da4"
-    },
-    {
-      "id": "7993",
-      "Nombre": "alex",
-      "Apellido": "fioquetti",
-      "Email": "alex@gmail.com",
-      "Provincia": "Mendoza",
-      "Ciudad": "Maipú",
-      "Nota": "5",
-      "Rol": "User",
-      "Contraseña": "alexd",
-      "token": "asd6234klfadd123da5"
-    },
-    {
-      "Nombre": "Pablo",
-      "Apellido": "martinez",
-      "Email": "pablo@gmail.com",
-      "Provincia": "Mendoza",
-      "Ciudad": "Maipú",
-      "Nota": "5",
-      "Rol": "Admin",
-      "Contraseña": "asdasda",
-      "id": "f9d7"
-    },
-    {
       "id": "35e4",
       "Nombre": "martin",
       "Apellido": "carrillo",
@@ -70,11 +23,71 @@
       "Rol": "Admin",
       "Contraseña": "emiliano",
       "token": " UbwgLyimJ3OB1t8"
+    },
+    {
+      "id": "aebe",
+      "Nombre": "moises",
+      "Apellido": "calderon",
+      "Email": "moises@gmail.com",
+      "Provincia": "San Luis",
+      "Ciudad": "Juana Koslay",
+      "Nota": "7",
+      "Rol": "User",
+      "Contraseña": "123456",
+      "token": " mTGKe7zohyrRwlz"
+    },
+    {
+      "id": "4862",
+      "Nombre": "nancy",
+      "Apellido": "martinez",
+      "Email": "nancy@gmail.com",
+      "Provincia": "Buenos Aires",
+      "Ciudad": "Quilmes",
+      "Nota": "10",
+      "Rol": "Admin",
+      "Contraseña": "123456",
+      "token": " XSPnY4iUqtIczWJ"
+    },
+    {
+      "id": "4a22",
+      "Nombre": "mirtha",
+      "Apellido": "callejon",
+      "Email": "mirtha@gmai.com",
+      "Provincia": "Mendoza",
+      "Ciudad": "Godoy Cruz",
+      "Nota": "6",
+      "Rol": "User",
+      "Contraseña": "123456",
+      "token": " 6DCBdZlx5S7WnUs"
+    },
+    {
+      "id": "f8c5",
+      "Nombre": "lucia",
+      "Apellido": "arenas",
+      "Email": "lucia@gmail.com",
+      "Provincia": "Cordoba",
+      "Ciudad": "Jesús María",
+      "Nota": "8",
+      "Rol": "User",
+      "Contraseña": "123456",
+      "token": " 896mfnPBC8BAgnh"
+    },
+    {
+      "id": "e7f4",
+      "Nombre": "leonardo",
+      "Apellido": "barone",
+      "Email": "leo@gmail.com",
+      "Provincia": "Cordoba",
+      "Ciudad": "San Francisco",
+      "Nota": "8",
+      "Rol": "User",
+      "Contraseña": "123456",
+      "token": " dE4S8NexvDIqiXb"
     }
   ],
   "courses": [
     {
-      "nombreCurso": "Ingles",
+      "nombreCurso": "laboratorio",
       "Fecha": "2024-02-26T03:00:00.000Z",
       "id": "99de"
     },
@@ -84,14 +97,51 @@
       "id": "8331"
     },
     {
-      "id": "bf49",
-      "nombreCurso": "informatica",
-      "Fecha": "2024-02-29T03:00:00.000Z"
-    },
-    {
       "id": "230c",
       "nombreCurso": "educacion fisica",
       "Fecha": "2024-02-14T03:00:00.000Z"
+    },
+    {
+      "id": "f18c",
+      "nombreCurso": "lengua",
+      "Fecha": "2024-02-16T03:00:00.000Z"
+    },
+    {
+      "id": "af5c",
+      "nombreCurso": "Fisica",
+      "Fecha": "2024-02-29T03:00:00.000Z"
+    },
+    {
+      "id": "7e8b",
+      "nombreCurso": "informatica",
+      "Fecha": "2024-02-29T03:00:00.000Z"
+    }
+  ],
+  "Clases": [
+    {
+      "userId": "4a22",
+      "courseId": "f18c",
+      "id": "519a"
+    },
+    {
+      "userId": "aebe",
+      "courseId": "99de",
+      "id": "4fcb"
+    },
+    {
+      "id": "d9bf",
+      "userId": "4a22",
+      "courseId": "230c"
+    },
+    {
+      "id": "e016",
+      "userId": "f8c5",
+      "courseId": "7e8b"
+    },
+    {
+      "id": "2719",
+      "userId": "e7f4",
+      "courseId": "8331"
     }
   ]
 }

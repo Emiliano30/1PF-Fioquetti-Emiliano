@@ -44,12 +44,16 @@ import { adminGuard } from '../../core/auth/admin.guard';
     },
     {
       path:'alumnos',
-      canActivate:[adminGuard],
+      // canActivate:[adminGuard],
       loadChildren:()=>import('./paginas/alumnos2/alumnos2.module').then((m)=>m.Alumnos2Module)
     },
     {
       path:'cursos',
       loadChildren: ()=>import('./paginas/cursos/cursos.module').then((m)=>m.CursosModule)
+    },
+    {
+      path: 'inscripciones',
+      loadChildren: ()=> import('./paginas/inscripciones/inscripciones.module').then((m)=>m.InscripcionesModule)
     },
     {
       path:'**',
